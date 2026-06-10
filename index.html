@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BDE Best Practices &amp; Prospecting Toolkit — Awayday</title>
+<meta name="description" content="BDE best practices for recurring tasks, all 7 prospecting channels, and 1:1 coaching questions.">
+<meta property="og:title" content="BDE Best Practices &amp; Prospecting Toolkit — Awayday">
+<meta property="og:description" content="Daily, weekly &amp; monthly tasks, 7 prospecting channels, and 1:1 prep questions — all in one place.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzJENDQ0NyIvPjx0ZXh0IHg9IjE2IiB5PSIyMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNlcmlmIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI0YzQ0UzQyI+YTwvdGV4dD48L3N2Zz4=">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --rock:#2D4447;--rock2:#3d5d62;
+  --sun:#F3CE3C;--sun2:#c9a800;
+  --sea:#B5DCE1;--sea2:#d6eef1;
+  --mist:#EDF6F7;--white:#fff;
+  --muted:rgba(45,68,71,.55);
+  --nav-h:60px;--mob-bar:64px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit','Segoe UI',system-ui,sans-serif;background:var(--mist);color:var(--rock);min-height:100vh;padding-bottom:var(--mob-bar)}
+
+/* NAV */
+.topbar{position:sticky;top:0;z-index:100;background:var(--rock);height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;box-shadow:0 2px 12px rgba(0,0,0,.18)}
+.topbar-logo{font-size:22px;font-weight:700;color:var(--sun);letter-spacing:-.5px;text-decoration:none}
+.topbar-badge{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--sea);background:rgba(181,220,225,.15);padding:4px 12px;border-radius:20px;border:1px solid rgba(181,220,225,.25)}
+.topbar-tabs{display:flex;gap:6px}
+.topbar-tabs .tab{font-family:inherit;font-size:12px;font-weight:600;padding:6px 15px;border-radius:20px;border:1.5px solid rgba(181,220,225,.35);cursor:pointer;background:transparent;color:rgba(237,246,247,.7);text-transform:uppercase;letter-spacing:.06em;transition:all .18s;white-space:nowrap}
+.topbar-tabs .tab:hover{background:rgba(181,220,225,.15);color:var(--sea)}
+.topbar-tabs .tab.active{background:var(--sun);color:var(--rock);border-color:var(--sun)}
+
+/* MOBILE BOTTOM BAR */
+.mob-tabs{display:none;position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--rock);height:var(--mob-bar);border-top:1px solid rgba(181,220,225,.2)}
+.mob-tabs-inner{display:flex;height:100%;align-items:center;justify-content:space-around;padding:0 1rem}
+.mob-tab{display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:6px 10px;border-radius:10px;border:none;background:transparent;color:rgba(237,246,247,.45);font-family:inherit;transition:all .18s}
+.mob-tab.active{color:var(--sun)}
+.mob-tab-lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+
+/* LAYOUT */
+.page{max-width:960px;margin:0 auto;padding:2rem 1.5rem 3rem}
+.pane{display:none}.pane.active{display:block}
+.slabel{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.85rem}
+
+/* HERO */
+.hero{background:var(--rock);border-radius:16px;padding:1.5rem 2rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.hero-text h1{font-size:20px;font-weight:700;color:var(--white);margin-bottom:4px}
+.hero-text p{font-size:13px;color:rgba(237,246,247,.65);line-height:1.5}
+.hero-stats{display:flex;gap:1.5rem}
+.hstat{text-align:center}
+.hstat-n{font-size:22px;font-weight:700;color:var(--sun)}
+.hstat-l{font-size:10px;color:rgba(237,246,247,.5);text-transform:uppercase;letter-spacing:.06em}
+
+/* PERIOD TABS */
+.period-tabs{display:flex;gap:8px;margin-bottom:1.25rem;flex-wrap:wrap}
+.ptab{font-family:inherit;font-size:13px;font-weight:600;padding:8px 22px;border-radius:20px;border:1.5px solid var(--sea);cursor:pointer;background:var(--white);color:var(--rock);text-transform:uppercase;letter-spacing:.06em;transition:all .18s}
+.ptab:hover{background:var(--sea)}
+.ptab.active{background:var(--rock);color:var(--sun);border-color:var(--rock)}
+.period-pane{display:none}.period-pane.active{display:block}
+
+/* PROGRESS BAR */
+.progress-wrap{background:var(--white);border:1px solid var(--sea);border-radius:14px;padding:1rem 1.25rem;margin-bottom:1.25rem}
+.progress-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:1rem;flex-wrap:wrap}
+.progress-label{font-size:13px;font-weight:600;color:var(--rock)}
+.progress-right{display:flex;align-items:center;gap:10px}
+.progress-pct{font-size:22px;font-weight:700;color:var(--rock)}
+.clear-btn{font-family:inherit;font-size:12px;font-weight:600;background:transparent;border:1.5px solid var(--sea);color:var(--rock);padding:5px 14px;border-radius:20px;cursor:pointer;transition:all .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.clear-btn:hover{background:#fde8e8;border-color:#e57373;color:#c62828}
+.pbg{background:var(--sea2);border-radius:10px;height:8px;overflow:hidden}
+.pfill{height:100%;background:var(--rock);border-radius:10px;transition:width .4s ease}
+.pfill.complete{background:var(--sun)}
+.progress-sub{font-size:12px;color:var(--muted);margin-top:6px}
+
+/* TASK CARDS — CHECKABLE */
+.cat-section{margin-bottom:1.5rem}
+.cat-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid var(--sun)}
+.cat-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--rock)}
+.cat-count{font-size:11px;color:var(--muted);margin-left:auto}
+
+.task-card{background:var(--white);border:1.5px solid var(--sea);border-radius:10px;padding:11px 14px;margin-bottom:8px;display:flex;align-items:flex-start;gap:12px;cursor:pointer;transition:all .18s;user-select:none}
+.task-card:hover{border-color:var(--rock);background:var(--mist)}
+.task-card.done{opacity:.5;background:var(--mist)}
+.task-card.done .task-name{text-decoration:line-through}
+.task-card.done .chk-box{background:var(--rock);border-color:var(--rock)}
+.task-card.done .chk-box::after{opacity:1}
+
+.chk-box{width:22px;height:22px;border:2px solid var(--sea);border-radius:6px;flex-shrink:0;position:relative;transition:all .18s;background:var(--white);margin-top:1px}
+.chk-box::after{content:'';position:absolute;left:5px;top:2px;width:7px;height:11px;border:2.5px solid var(--white);border-top:none;border-left:none;transform:rotate(45deg);opacity:0;transition:opacity .15s}
+
+.task-body{flex:1}
+.task-name{font-size:14px;font-weight:700;color:var(--rock);margin-bottom:2px;transition:all .18s}
+.task-detail{font-size:12.5px;color:var(--muted);line-height:1.45}
+
+/* WEEKLY GRID */
+.weekly-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+.weekly-card{background:var(--white);border:1.5px solid var(--sea);border-radius:10px;padding:10px 14px;font-size:13.5px;color:var(--rock);display:flex;align-items:center;gap:10px;cursor:pointer;transition:all .18s;user-select:none}
+.weekly-card:hover{border-color:var(--rock);background:var(--mist)}
+.weekly-card.done{opacity:.5;background:var(--mist)}
+.weekly-card.done .weekly-label{text-decoration:line-through}
+.weekly-card.done .chk-box{background:var(--rock);border-color:var(--rock)}
+.weekly-card.done .chk-box::after{opacity:1}
+.weekly-label{flex:1;line-height:1.4}
+
+/* COMPLETION BANNER */
+.complete-banner{background:var(--rock);border-radius:14px;padding:1.25rem 1.5rem;margin-bottom:1.25rem;display:none;align-items:center;gap:14px}
+.complete-banner.show{display:flex}
+.complete-banner-icon{font-size:28px;flex-shrink:0}
+.complete-banner-text strong{font-size:15px;color:var(--sun);display:block;margin-bottom:3px}
+.complete-banner-text span{font-size:13px;color:rgba(237,246,247,.75)}
+
+/* TOOL GRID */
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:1.25rem}
+.tool-card{background:var(--white);border:1.5px solid var(--sea);border-radius:14px;padding:1rem 1.1rem;cursor:pointer;transition:all .18s}
+.tool-card:hover{border-color:var(--rock);transform:translateY(-2px);box-shadow:0 4px 16px rgba(45,68,71,.1)}
+.tool-card.active{border-color:var(--rock);border-width:2px;background:var(--mist)}
+.tc-icon{margin-bottom:7px;color:var(--rock)}
+.tc-title{font-size:14px;font-weight:700;color:var(--rock);margin-bottom:3px}
+.tc-desc{font-size:12px;color:var(--muted);line-height:1.4}
+
+/* DETAIL PANEL */
+.detail{background:var(--white);border:1.5px solid var(--sea);border-radius:14px;padding:1.5rem 1.75rem;display:none}
+.detail.vis{display:block}
+.dh{display:flex;align-items:center;gap:12px;margin-bottom:1.1rem;padding-bottom:1rem;border-bottom:1px solid var(--sea2)}
+.dt{font-size:20px;font-weight:700;color:var(--rock)}
+.dbody{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.dcol-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:10px}
+.ai{display:flex;align-items:flex-start;gap:9px;margin-bottom:10px;font-size:13.5px;color:var(--rock);line-height:1.5}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--sun);flex-shrink:0;margin-top:5px;border:1.5px solid var(--sun2)}
+.qi{display:flex;align-items:flex-start;gap:9px;margin-bottom:9px;font-size:13.5px;color:var(--rock);line-height:1.5;background:var(--mist);padding:8px 11px;border-radius:8px;border:1px solid var(--sea)}
+.tip{background:var(--rock);border-radius:12px;padding:1rem 1.25rem;margin-top:1.25rem;display:flex;align-items:flex-start;gap:10px}
+.tip-t{font-size:13px;color:rgba(237,246,247,.85);line-height:1.55}
+.tip-t strong{color:var(--sun)}
+
+/* PIPELINE */
+.pc{margin-bottom:1.5rem}
+.ph{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.ph-title{font-size:15px;font-weight:700;color:var(--rock)}
+.print-btn{font-family:inherit;font-size:12px;font-weight:600;background:var(--rock);color:var(--sun);border:none;padding:7px 18px;border-radius:20px;cursor:pointer;margin-bottom:1.25rem;display:inline-flex;align-items:center;gap:6px;transition:opacity .15s}
+.print-btn:hover{opacity:.85}
+
+/* SCROLL TO TOP */
+.stt{position:fixed;bottom:calc(var(--mob-bar) + 16px);right:1.25rem;width:40px;height:40px;background:var(--rock);color:var(--sun);border:none;border-radius:50%;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.2);z-index:99}
+.stt.show{display:flex}
+.stt:hover{opacity:.85}
+
+/* FOOTER */
+.footer{text-align:center;font-size:12px;color:var(--muted);margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--sea)}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+  .topbar-tabs,.topbar-badge{display:none}
+  .mob-tabs{display:block}
+  .dbody{grid-template-columns:1fr}
+  .tool-grid{grid-template-columns:1fr 1fr}
+  .weekly-grid{grid-template-columns:1fr}
+  .page{padding:1.25rem 1rem 2rem}
+  .hero{padding:1.1rem 1.25rem}
+  .hero-stats{gap:1rem}
+}
+@media(max-width:400px){.tool-grid{grid-template-columns:1fr}}
+
+/* PRINT */
+@media print{
+  .topbar,.mob-tabs,.stt,.print-btn,.hero,.period-tabs,.progress-wrap,.clear-btn{display:none!important}
+  body{background:white;padding:0}
+  .page{padding:1rem;max-width:100%}
+  .pane{display:block!important}
+  #p-tools,#p-best{display:none!important}
+  #p-pipeline{display:block!important}
+  .pc{break-inside:avoid;margin-bottom:1rem}
+  .qi{background:white;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <a class="topbar-logo" href="#">awayday</a>
+  <div class="topbar-tabs">
+    <button class="tab active" onclick="sw('best',this,'best')">BDE Best Practices</button>
+    <button class="tab" onclick="sw('tools',this,'tools')">Prospecting Tools</button>
+    <button class="tab" onclick="sw('pipeline',this,'pipeline')">1:1 Prep Questions</button>
+  </div>
+  <span class="topbar-badge">BDE Toolkit</span>
+</nav>
+
+<div class="mob-tabs">
+  <div class="mob-tabs-inner">
+    <button class="mob-tab active" id="mtab-best" onclick="sw('best',null,'best')">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      <span class="mob-tab-lbl">Best Practice</span>
+    </button>
+    <button class="mob-tab" id="mtab-tools" onclick="sw('tools',null,'tools')">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      <span class="mob-tab-lbl">Prospecting</span>
+    </button>
+    <button class="mob-tab" id="mtab-pipeline" onclick="sw('pipeline',null,'pipeline')">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l1.3-3.9A8.5 8.5 0 1 1 12 20.5c-1.8 0-3.5-.5-4.9-1.4L3 20"/></svg>
+      <span class="mob-tab-lbl">1:1 Prep</span>
+    </button>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="hero">
+    <div class="hero-text">
+      <h1>BDE Best Practices &amp; Prospecting Toolkit</h1>
+      <p>Recurring tasks, prospecting channels, and 1:1 coaching questions — all in one place</p>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n">3</div><div class="hstat-l">Cadences</div></div>
+      <div class="hstat"><div class="hstat-n">7</div><div class="hstat-l">Channels</div></div>
+      <div class="hstat"><div class="hstat-n">21</div><div class="hstat-l">Questions</div></div>
+    </div>
+  </div>
+
+  <!-- BEST PRACTICES PANE -->
+  <div id="p-best" class="pane active">
+    <div class="period-tabs">
+      <button class="ptab active" onclick="sp('daily',this)">Daily Tasks</button>
+      <button class="ptab" onclick="sp('weekly',this)">Weekly Checklist</button>
+      <button class="ptab" onclick="sp('monthly',this)">Monthly Tasks</button>
+    </div>
+
+    <!-- DAILY -->
+    <div id="pp-daily" class="period-pane active">
+      <div class="progress-wrap">
+        <div class="progress-top">
+          <div>
+            <div class="progress-label">Today's Progress</div>
+            <div class="progress-sub" id="daily-sub">0 of 10 tasks completed</div>
+          </div>
+          <div class="progress-right">
+            <div class="progress-pct" id="daily-pct">0%</div>
+            <button class="clear-btn" onclick="clearPeriod('daily')">
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>
+              Clear &amp; Reset
+            </button>
+          </div>
+        </div>
+        <div class="pbg"><div class="pfill" id="daily-fill" style="width:0%"></div></div>
+      </div>
+      <div class="complete-banner" id="daily-banner">
+        <div class="complete-banner-icon">🎉</div>
+        <div class="complete-banner-text">
+          <strong>All daily tasks complete!</strong>
+          <span>Great work today. Hit "Clear &amp; Reset" when you're ready to start fresh tomorrow.</span>
+        </div>
+      </div>
+      <div id="daily-content"></div>
+    </div>
+
+    <!-- WEEKLY -->
+    <div id="pp-weekly" class="period-pane">
+      <div class="progress-wrap">
+        <div class="progress-top">
+          <div>
+            <div class="progress-label">This Week's Progress</div>
+            <div class="progress-sub" id="weekly-sub">0 of 11 tasks completed</div>
+          </div>
+          <div class="progress-right">
+            <div class="progress-pct" id="weekly-pct">0%</div>
+            <button class="clear-btn" onclick="clearPeriod('weekly')">
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>
+              Clear &amp; Reset
+            </button>
+          </div>
+        </div>
+        <div class="pbg"><div class="pfill" id="weekly-fill" style="width:0%"></div></div>
+      </div>
+      <div class="complete-banner" id="weekly-banner">
+        <div class="complete-banner-icon">🏆</div>
+        <div class="complete-banner-text">
+          <strong>Full week complete!</strong>
+          <span>You covered every channel. Reset when the new week starts.</span>
+        </div>
+      </div>
+      <div id="weekly-content"></div>
+    </div>
+
+    <!-- MONTHLY -->
+    <div id="pp-monthly" class="period-pane">
+      <div class="progress-wrap">
+        <div class="progress-top">
+          <div>
+            <div class="progress-label">This Month's Progress</div>
+            <div class="progress-sub" id="monthly-sub">0 of 6 tasks completed</div>
+          </div>
+          <div class="progress-right">
+            <div class="progress-pct" id="monthly-pct">0%</div>
+            <button class="clear-btn" onclick="clearPeriod('monthly')">
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>
+              Clear &amp; Reset
+            </button>
+          </div>
+        </div>
+        <div class="pbg"><div class="pfill" id="monthly-fill" style="width:0%"></div></div>
+      </div>
+      <div class="complete-banner" id="monthly-banner">
+        <div class="complete-banner-icon">⭐</div>
+        <div class="complete-banner-text">
+          <strong>All monthly tasks done!</strong>
+          <span>Excellent month. Clear and start fresh when the new month begins.</span>
+        </div>
+      </div>
+      <div id="monthly-content"></div>
+    </div>
+  </div>
+
+  <!-- PROSPECTING TOOLS PANE -->
+  <div id="p-tools" class="pane">
+    <div class="slabel">Select a channel to explore tactics &amp; actions</div>
+    <div class="tool-grid" id="tgrid"></div>
+    <div class="detail" id="dpanel"></div>
+  </div>
+
+  <!-- PIPELINE PANE -->
+  <div id="p-pipeline" class="pane">
+    <div class="slabel">1:1 check-in questions by channel</div>
+    <button class="print-btn" onclick="window.print()">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+      Print this page
+    </button>
+    <div id="pcontent"></div>
+  </div>
+
+  <div class="footer">Awayday &bull; BDE Best Practices &amp; Prospecting Toolkit &bull; For internal use &bull; Last updated 9 June 2026</div>
+</div>
+
+<button class="stt" id="stt" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<script>
+const TOOLS = [{"id": "realtor", "icon": "ti-home", "title": "Realtor Outreach", "desc": "Connect with agents for buy/sell side leads", "actions": ["Pending listing buy side outreach (call, email, text)", "Sell side new listing outreach \u2014 send projection, call, text", "Relationship building: open houses, lunch &amp; learns"], "qs": ["How many went pending this week?", "Did you send projections to new listings?", "How did your last open house go?"], "tip": "New pending listings = a warm window. Reach out within 24 hours while the owner is still making decisions."}, {"id": "market", "icon": "ti-trending-up", "title": "Weaponize Market Issues", "desc": "Turn market intelligence into conversations", "actions": ["Listen for and track owner sentiment issues in the market", "Monitor upcoming building changes: assessments, HOA shifts", "Stay alert to acquisition rumors and tech/ops instability", "Track market rumblings: staff morale, legal issues, HOA disputes"], "qs": ["What owner sentiment issues are you hearing right now?", "Are there any upcoming HOA or assessment changes nearby?", "Any acquisition rumors or OTA/portal instability to note?"], "tip": "Market intel is a conversation starter \u2014 use it to open doors, not close deals on the first call."}, {"id": "cold", "icon": "ti-phone", "title": "Cold Calling &amp; Emailing", "desc": "Absentee owner outreach at scale", "actions": ["You will receive an absentee owner list with email + phone", "Make 30 personalized calls per month (~1.5/day)", "Send 1 personalized email per day to approximately 50 owners"], "qs": ["How many calls did you make this week?", "What is your connection rate on absentee owner calls?", "Are you personalizing emails before sending?"], "tip": "30 calls/month = roughly 1.5 per day. Block 20 minutes each morning before other tasks crowd it out."}, {"id": "cp", "icon": "ti-rotate", "title": "Cold Missed in CP", "desc": "Re-engage cold leads from your CRM", "actions": ["Review CP cold missed leads monthly and plan re-engagement", "BDM will send warm-up emails from your account first", "Follow up with a call to check back in after warm-up"], "qs": ["How many cold missed leads have you re-engaged this month?", "Have you reviewed this month&#39;s cold missed list yet?", "Which warm-up emails got a response \u2014 any patterns?"], "tip": "Wait for BDM warm-up email confirmation before calling \u2014 avoid overlap and ensure the outreach feels coordinated."}, {"id": "hoa", "icon": "ti-building-community", "title": "HOA &amp; CAM Referrals", "desc": "Build trust in top buildings &amp; communities", "actions": ["Identify the top buildings and communities in your area", "Drop in regularly to build trust and foster relationships", "Host or sponsor events to get Awayday&#39;s name in the building"], "qs": ["Which buildings are you actively working right now?", "When did you last visit your top 3 communities?", "Do you have any upcoming events or sponsorships lined up?"], "tip": "Consistency matters more than frequency. A monthly visit beats a one-time blitz every time."}, {"id": "campaigns", "icon": "ti-mail", "title": "Targeted Campaigns", "desc": "Coordinate direct mail &amp; outreach strategy", "actions": ["Identify high-value targets: neighborhoods, streets, buildings", "Coordinate a marketing plan with your BDM", "Create a direct mail cadence \u2014 vary content and timing"], "qs": ["What neighborhoods or streets are you targeting this month?", "Have you reviewed and refreshed your mail cadence recently?", "What response rate are you seeing from recent campaigns?"], "tip": "Vary your mail content \u2014 market updates, testimonials, and seasonal pieces all perform differently. Rotate them."}, {"id": "community", "icon": "ti-users", "title": "Community Involvement", "desc": "Network locally and build brand presence", "actions": ["Attend local networking events; volunteer or sponsor when possible", "Call the chamber of commerce to check upcoming events and opportunities", "Get involved with the Board of Realtors \u2014 sponsor if budget allows"], "qs": ["What events have you attended this month?", "Have you connected with your local chamber of commerce lately?", "Are you active in the Board of Realtors?"], "tip": "Sponsorships get you in the room AND on the program. Budget for at least one per quarter \u2014 the visibility compounds."}];
+const BP = {"daily": [{"cat": "Owner Outreach", "items": [{"id": "d_cold_calls", "task": "Cold Calls", "detail": "Call absentee owners"}, {"id": "d_email_50", "task": "Email 50 Owners", "detail": "Send outreach emails to property owners"}]}, {"cat": "Realtor Activities", "items": [{"id": "d_check_mls", "task": "Check MLS", "detail": "Review new listings (within 24 hrs), pending (24\u201348 hrs), recently sold (24\u201348 hrs)"}, {"id": "d_contact_realtors", "task": "Contact Realtors", "detail": "Call and Text Pending Realtors"}, {"id": "d_send_proj", "task": "Send Projections", "detail": "Explain how projections reduce time on market and lead to faster sales"}, {"id": "d_followup", "task": "Follow-Up", "detail": "Contact realtors you have not been able to connect with"}, {"id": "d_visit_office", "task": "Visit Realtor Office", "detail": "Bring projections to a new office"}]}, {"cat": "HOA / Vendor", "items": [{"id": "d_visit_hoa", "task": "Visit HOA/CAM", "detail": "Make contact with new HOA or CAM"}, {"id": "d_visit_vendor", "task": "Visit Vendor", "detail": "Deliver referral flyer to new vendor"}]}, {"cat": "Admin", "items": [{"id": "d_crm", "task": "CRM Updates", "detail": "Log all activities and contacts in ContactPoint"}]}], "weekly": [{"id": "w_open_house", "task": "Schedule Open House Sponsorship"}, {"id": "w_chamber", "task": "Check Chamber Meetings"}, {"id": "w_office_lunch", "task": "Office Lunch"}, {"id": "w_linkedin", "task": "LinkedIn Posts"}, {"id": "w_cold_leads", "task": "Contact Missed/Cold Leads"}, {"id": "w_ra", "task": "Follow Up on RAs"}, {"id": "w_vendors", "task": "Follow Up with Vendors"}, {"id": "w_hoa", "task": "Follow Up on HOA/CAM Visits"}, {"id": "w_calls", "task": "Listen to Call Reports"}, {"id": "w_route", "task": "Map Realtor/Vendor Route"}, {"id": "w_swag", "task": "Prep Swag &amp; Projections"}], "monthly": [{"id": "m_crm", "task": "Clean Up CRM", "detail": "Audit and clean your ContactPoint pipeline"}, {"id": "m_campaign", "task": "Create Targeted Building Campaign", "detail": "Identify high-value buildings and coordinate with BDM"}, {"id": "m_investor", "task": "Create Investor Letters", "detail": "Draft and send targeted investor outreach"}, {"id": "m_ort", "task": "Knowledge Plan \u2014 ORT", "detail": "Sit with ORT team for 1 hour"}, {"id": "m_ops", "task": "Knowledge Plan \u2014 Ops", "detail": "Sit with Operations team for 1 hour"}, {"id": "m_gs", "task": "Knowledge Plan \u2014 Guest Services", "detail": "Sit with Guest Services team for 1 hour"}]};
+const LS = 'awayday_v3';
+
+// Load state from localStorage
+let state = {};
+try { state = JSON.parse(localStorage.getItem(LS)||'{}'); } catch(e) {}
+function save() { try{localStorage.setItem(LS,JSON.stringify(state));}catch(e){} }
+
+const ICONS = {
+  "ti-home":'<svg viewBox="0 0 24 24" width="20" height="20" style="display:inline-block;vertical-align:middle;color:var(--rock)" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>',
+  "ti-trending-up":'<svg viewBox="0 0 24 24" width="20" height="20" style="display:inline-block;vertical-align:middle;color:var(--rock)" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-9"/><path d="M17 8h4v4"/></svg>',
+  "ti-phone":'<svg viewBox="0 0 24 24" width="20" height="20" style="display:inline-block;vertical-align:middle;color:var(--rock)" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>',
+  "ti-rotate":'<svg viewBox="0 0 24 24" width="20" height="20" style="display:inline-block;vertical-align:middle;color:var(--rock)" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19.95 11a8 8 0 1 0-.5 4"/><path d="M19.95 15v-4h-4"/></svg>',
+  "ti-building-community":'<svg viewBox="0 0 24 24" width="20" height="20" style="display:inline-block;vertical-align:middle;color:var(--rock)" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9h8M8 13h6M4 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5zM4 13v7M20 13v7M9 21v-4a2 2 0 0 1 4 0v4"/></svg>',
+  "ti-mail":'<svg viewBox="0 0 24 24" width="20" height="20" style="display:inline-block;vertical-align:middle;color:var(--rock)" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/><path d="M3 7l9 6 9-6"/></svg>',
+  "ti-users":'<svg viewBox="0 0 24 24" width="20" height="20" style="display:inline-block;vertical-align:middle;color:var(--rock)" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7a4 4 0 1 0 8 0 4 4 0 0 0-8 0M3 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2"/></svg>',
+  "ti-bulb":'<svg viewBox="0 0 24 24" width="18" height="18" style="flex-shrink:0;margin-top:2px;color:var(--sun)" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/></svg>',
+  "ti-msg":'<svg viewBox="0 0 24 24" width="15" height="15" style="flex-shrink:0;margin-top:2px;color:var(--sea)" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l1.3-3.9A8.5 8.5 0 1 1 12 20.5c-1.8 0-3.5-.5-4.9-1.4L3 20"/></svg>',
+};
+
+let aid = null;
+
+function sw(tab, btn, mobId) {
+  document.querySelectorAll('.pane').forEach(e=>e.classList.remove('active'));
+  document.querySelectorAll('.topbar-tabs .tab').forEach(e=>e.classList.remove('active'));
+  document.querySelectorAll('.mob-tab').forEach(e=>e.classList.remove('active'));
+  document.getElementById('p-'+tab).classList.add('active');
+  if(btn) btn.classList.add('active');
+  const mob = document.getElementById('mtab-'+(mobId||tab));
+  if(mob) mob.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function sp(period, btn) {
+  document.querySelectorAll('.period-pane').forEach(e=>e.classList.remove('active'));
+  document.querySelectorAll('.ptab').forEach(e=>e.classList.remove('active'));
+  document.getElementById('pp-'+period).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── CHECKLIST LOGIC ──
+function toggleTask(id, period) {
+  if(!state[period]) state[period] = {};
+  state[period][id] = !state[period][id];
+  save();
+  renderPeriod(period);
+}
+
+function clearPeriod(period) {
+  state[period] = {};
+  save();
+  renderPeriod(period);
+}
+
+function updateProgress(period, done, total) {
+  const pct = total ? Math.round(done/total*100) : 0;
+  document.getElementById(period+'-pct').textContent = pct+'%';
+  document.getElementById(period+'-sub').textContent = done+' of '+total+' tasks completed';
+  const fill = document.getElementById(period+'-fill');
+  fill.style.width = pct+'%';
+  fill.className = 'pfill' + (pct===100?' complete':'');
+  const banner = document.getElementById(period+'-banner');
+  banner.classList.toggle('show', pct===100);
+}
+
+function isChecked(period, id) {
+  return !!(state[period] && state[period][id]);
+}
+
+function renderPeriod(period) {
+  if(period==='daily') renderDaily();
+  else if(period==='weekly') renderWeekly();
+  else if(period==='monthly') renderMonthly();
+}
+
+function renderDaily() {
+  const allItems = BP.daily.flatMap(s=>s.items);
+  const done = allItems.filter(i=>isChecked('daily',i.id)).length;
+  updateProgress('daily', done, allItems.length);
+
+  document.getElementById('daily-content').innerHTML = BP.daily.map(sec=>{
+    const secDone = sec.items.filter(i=>isChecked('daily',i.id)).length;
+    return `<div class="cat-section">
+      <div class="cat-header">
+        <div class="cat-title">${sec.cat}</div>
+        <div class="cat-count">${secDone}/${sec.items.length}</div>
+      </div>
+      ${sec.items.map(item=>`
+        <div class="task-card ${isChecked('daily',item.id)?'done':''}" onclick="toggleTask('${item.id}','daily')">
+          <div class="chk-box"></div>
+          <div class="task-body">
+            <div class="task-name">${item.task}</div>
+            <div class="task-detail">${item.detail}</div>
+          </div>
+        </div>`).join('')}
+    </div>`;
+  }).join('');
+}
+
+function renderWeekly() {
+  const done = BP.weekly.filter(w=>isChecked('weekly',w.id)).length;
+  updateProgress('weekly', done, BP.weekly.length);
+
+  document.getElementById('weekly-content').innerHTML = `
+    <div class="weekly-grid">
+      ${BP.weekly.map(w=>`
+        <div class="weekly-card ${isChecked('weekly',w.id)?'done':''}" onclick="toggleTask('${w.id}','weekly')">
+          <div class="chk-box"></div>
+          <span class="weekly-label">${w.task}</span>
+        </div>`).join('')}
+    </div>`;
+}
+
+function renderMonthly() {
+  const done = BP.monthly.filter(m=>isChecked('monthly',m.id)).length;
+  updateProgress('monthly', done, BP.monthly.length);
+
+  document.getElementById('monthly-content').innerHTML = BP.monthly.map(item=>`
+    <div class="task-card ${isChecked('monthly',item.id)?'done':''}" onclick="toggleTask('${item.id}','monthly')">
+      <div class="chk-box"></div>
+      <div class="task-body">
+        <div class="task-name">${item.task}</div>
+        <div class="task-detail">${item.detail}</div>
+      </div>
+    </div>`).join('');
+}
+
+// ── TOOLS ──
+function rTools() {
+  document.getElementById('tgrid').innerHTML = TOOLS.map(t=>`
+    <div class="tool-card ${aid===t.id?'active':''}" onclick="selTool('${t.id}')">
+      <div class="tc-icon">${ICONS[t.icon]}</div>
+      <div class="tc-title">${t.title}</div>
+      <div class="tc-desc">${t.desc}</div>
+    </div>`).join('');
+}
+
+function selTool(id) {
+  aid=id; rTools();
+  const t=TOOLS.find(x=>x.id===id);
+  const p=document.getElementById('dpanel');
+  p.classList.add('vis');
+  p.innerHTML=`
+    <div class="dh"><div>${ICONS[t.icon]}</div><div class="dt">${t.title}</div></div>
+    <div class="dbody">
+      <div>
+        <div class="dcol-title">Actions &amp; Tactics</div>
+        ${t.actions.map(a=>`<div class="ai"><div class="dot"></div><span>${a}</span></div>`).join('')}
+      </div>
+      <div>
+        <div class="dcol-title">1:1 Pipeline Questions</div>
+        ${t.qs.map(q=>`<div class="qi">${ICONS['ti-msg']}<span>${q}</span></div>`).join('')}
+      </div>
+    </div>
+    <div class="tip"><span>${ICONS['ti-bulb']}</span><div class="tip-t"><strong>Tip:</strong> ${t.tip}</div></div>`;
+  p.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function rPipeline() {
+  document.getElementById('pcontent').innerHTML=TOOLS.map(t=>`
+    <div class="pc">
+      <div class="ph"><div>${ICONS[t.icon]}</div><div class="ph-title">${t.title}</div></div>
+      ${t.qs.map(q=>`<div class="qi">${ICONS['ti-msg']}<span>${q}</span></div>`).join('')}
+    </div>`).join('');
+}
+
+window.addEventListener('scroll',()=>{
+  document.getElementById('stt').classList.toggle('show', window.scrollY>300);
+});
+
+// Init
+renderDaily(); renderWeekly(); renderMonthly();
+rTools(); rPipeline();
+</script>
+</body>
+</html>
